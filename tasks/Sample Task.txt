@@ -1,0 +1,16 @@
+taskfile
+^- Sample Task
+@- C:\Users\combsa\PycharmProjects\ADHDassist\tasks\Sample Task.txt
+$- Last Thursday
+!- Howdy!
+!- This
+!- Is
+!- A
+!- Task!
+!- 
+*- You can create one
+*- of these yourself.
+*- Click 'add task' on
+*- the left!
+*- 
+&- :)
