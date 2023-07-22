@@ -1,0 +1,11 @@
+
+v1.0.1 - July 22nd, 2023
+* Sample Task now deletable
+* Implemented Changelog
+* Altered task interface for easier use of Subtasks and Prerequisites
+* Fixed bug that added blank lines into the Subtasks and Prerequisites' data
+
+v1.0.0 - July 15th, 2023
+* Initial Release
+
+-------End of Log-------

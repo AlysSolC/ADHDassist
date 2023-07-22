@@ -72,34 +72,34 @@ class Win:
         # Changeable deadline
         dltext = StringVar(value=self.instance.deadline)
         deadlineframe = LabelFrame(master=self.rightframe, text="Deadline: ", labelanchor="w")
-        deadlineframe.grid(row=0, column=0, padx=10, pady=10)
+        deadlineframe.grid(row=0, column=1, padx=10, pady=5)
         deadlinetextbox = Entry(master=deadlineframe, textvariable=dltext)
         deadlinetextbox.grid(row=0, column=0)
 
         # Changeable prereqs
         prqframe = LabelFrame(master=self.rightframe, text="Prerequsites:")
-        prqframe.grid(row=1, column=0, padx=10, pady=10, sticky=W)
-        prqtextbox = Text(master=prqframe, height=6, width=20)
+        prqframe.grid(row=0, column=0, padx=10, pady=10, sticky=W, rowspan=2)
+        prqtextbox = Text(master=prqframe, height=8, width=30)
         prqtextbox.insert(index=END,chars="\n".join(self.instance.prereqs))
         prqtextbox.grid(row=0, column=0)
 
         # Changeable subtasks
         subtframe = LabelFrame(master=self.rightframe, text="Subtasks:")
-        subtframe.grid(row=1, column=1, padx=10, pady=10)
-        subttextbox = Text(master=subtframe, height=6, width=20, yscrollcommand="yes")
+        subtframe.grid(row=2, column=0, padx=10, pady=10, sticky=W, rowspan=2)
+        subttextbox = Text(master=subtframe, height=8, width=30)
         subttextbox.insert(index=END, chars="\n".join(self.instance.subtasks))
         subttextbox.grid(row=0, column=0)
 
         # Changeable notes
         noteframe = LabelFrame(master=self.rightframe, text="Notes:")
-        noteframe.grid(row=2, column=0, padx=10, pady=10, sticky=W)
-        notetextbox = Text(master=noteframe, height=6, width=30)
+        noteframe.grid(row=1, column=1, padx=10, pady=5, sticky=W, rowspan=2)
+        notetextbox = Text(master=noteframe, height=12, width=20)
         notetextbox.insert(index=END, chars=self.instance.notes)
         notetextbox.grid(row=0, column=0)
 
         # Button to change shit
         editbutton = Button(master=self.rightframe, text="Save Changes", command=lambda: dh.edittask(self.instance, dltext.get(), prqtextbox.get("1.0",END), subttextbox.get("1.0",END), notetextbox.get("1.0",END)))
-        editbutton.grid(row=2, column=1)
+        editbutton.grid(row=3, column=1)
 
     def delcmd(self, delorcomp):
         """
