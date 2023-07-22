@@ -1,7 +1,7 @@
 # ADHDassist
 An ADHD-oriented to-do list program, perfect for those who need to organize themselves to get things done!
 
-**Version: 1.0.0**
+**Version: 1.0.1**
 
 *Built by Berea College sophomore Alys Combs*
 
