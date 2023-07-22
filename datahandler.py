@@ -30,7 +30,6 @@ def file2class(file):
         return None
     else:
         #  Applying default values where applicable
-        # TODO: do this!
         taskdeadline = ""
         tasksubs = []
         taskprereqs = []
@@ -42,7 +41,10 @@ def file2class(file):
             if datacheck == "^- ":
                 tasktitle = line[3:-1]
             elif datacheck == "@- ":
-                taskfile = line[3:-1]
+                if tasktitle == "Sample Task":
+                    taskfile = os.getcwd() + "\\tasks\\Sample Task.txt"
+                else:
+                    taskfile = line[3:-1]
             elif datacheck == "$- ":
                 taskdeadline = line[3:-1]
             elif datacheck == "!- ":
@@ -81,13 +83,15 @@ def createtask(title, deadline, prereqs, subtasks, notes="", newtask=False):
     else:
         prereqlist = prereqs.split("\n")
     for item in prereqlist:
-        file.write("!- " + item + "\n")
+        if item != "":
+            file.write("!- " + item + "\n")
     if newtask:
         subtasklist = subtasks.split(",")
     else:
         subtasklist = subtasks.split("\n")
     for item in subtasklist:
-        file.write("*- " + item + "\n")
+        if item != "":
+            file.write("*- " + item + "\n")
     file.write("&- " + notes)
 
     file.close()

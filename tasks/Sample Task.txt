@@ -7,10 +7,9 @@ $- Last Thursday
 !- Is
 !- A
 !- Task!
-!- 
 *- You can create one
 *- of these yourself.
 *- Click 'add task' on
 *- the left!
-*- 
 &- :)
+

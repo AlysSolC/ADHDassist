@@ -5,8 +5,7 @@
 import tkinter as tk
 import webbrowser as web
 from tkinter import messagebox
-
-
+import os
 #################################################################
 
 
@@ -38,9 +37,25 @@ class About:
 
     def changelog(self):
         """
-        To be altered with each new update, giving a record of what has changed since the beginning of this program
+        To be altered with each new update, giving a record of what has changed since the program's inception
         """
-        c = tk.messagebox.showinfo(title="Changelog", message="Woah, looks like you're on the earliest version, you early adopter!")
+        changewin = tk.Tk()
+        changewin.geometry("300x300")
+
+        frame = tk.LabelFrame(master=changewin, text="Changelog")
+        frame.pack()
+
+        textfile = open(os.getcwd() + "\\changelog.txt")
+        newtext = ''
+        for line in textfile:
+            newtext = newtext + line
+
+        sc = tk.Scrollbar(master=frame, orient="vertical")
+        sc.pack(fill=tk.Y, side=tk.RIGHT, expand=tk.FALSE)
+        canv = tk.Canvas(master=frame, yscrollcommand=sc.set, scrollregion=(0,0,500,500))
+        canv.create_text(50, 50, text=newtext, anchor=tk.NW)
+        canv.pack(fill=tk.BOTH, side=tk.LEFT, expand=tk.TRUE)
+        sc.config(command=canv.yview)
 
     def contact(self):
         c = tk.messagebox.showinfo(title="Contact me!", message="Email:\tacombs.ohva@gmail.com\nGithub:\thttps://github.com/AlysSolC\n")
